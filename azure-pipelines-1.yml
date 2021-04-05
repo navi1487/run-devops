@@ -41,21 +41,4 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-- stage: APIBuild
-  displayName: Build and push stage
-  jobs:
-  - job: Build
-    displayName: Build
-    pool:
-      vmImage: $(vmImageName)
-    steps:
-    - task: Docker@3
-      displayName: Build and push an image to container registry
-      inputs:
-        command: buildAndPush
-        repository: $(imageRepositor1)
-        dockerfile: $(dockerfilePath1)
-        containerRegistry: $(dockerRegistryServiceConnection)
-        tags: |
-          $(tag)
 
