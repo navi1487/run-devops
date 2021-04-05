@@ -41,7 +41,7 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
-- stage: Build
+- stage: APIBuild
   displayName: Build and push stage
   jobs:
   - job: Build
