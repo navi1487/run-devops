@@ -49,7 +49,6 @@ stages:
     pool:
       vmImage: $(vmImageName)
     steps:
-
     - task: Docker@3
       displayName: Build and push an image to container registry
       inputs:
