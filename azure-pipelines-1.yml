@@ -41,9 +41,13 @@ stages:
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+    - task: Docker@3
+      displayName: Build and push an image to container registry
+      inputs:
         command: buildAndPush
-        repository: $(imageRepository1)
+        repository: $(imageRepositor1)
         dockerfile: $(dockerfilePath1)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
+
