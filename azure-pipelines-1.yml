@@ -15,6 +15,10 @@ variables:
   containerRegistry: 'aksdemo1.azurecr.io'
   dockerfilePath: '$(Build.SourcesDirectory)/Shopping/Shopping.Client/Dockerfile'
   tag: '$(Build.BuildId)'
+  imageRepository1: 'shoppingapi'
+  containerRegistry1: 'aksdemo1.azurecr.io'
+  dockerfilePath1: '$(Build.SourcesDirectory)/Shopping/Shopping.API/Dockerfile'
+
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -34,6 +38,12 @@ stages:
         command: buildAndPush
         repository: $(imageRepository)
         dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+        command: buildAndPush
+        repository: $(imageRepository1)
+        dockerfile: $(dockerfilePath1)
         containerRegistry: $(dockerRegistryServiceConnection)
         tags: |
           $(tag)
